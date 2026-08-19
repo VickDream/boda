@@ -1,0 +1,28 @@
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.countdown-box {
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--accent-gold, #d4af37);
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 55px;
+}
+
+.countdown-number {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--accent-gold, #d4af37);
+}
+
+.countdown-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #555;
+}

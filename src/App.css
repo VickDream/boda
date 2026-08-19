@@ -1,0 +1,45 @@
+/* src/App.css */
+:root {
+  /* Fondo degradado más notorio y cálido */
+  --bg-gradient-start: #fff1e6;
+  --bg-gradient-end: #dfc2b1;
+  
+  --envelope-bg: #4a0404;       /* Vino tinto profundo */
+  --envelope-flap: #2a0000;       /* Solapa muy oscura */
+  --envelope-front: #7f1d1d;      /* Bolsillo en rojo oscuro */
+  --card-bg: #fcfbf7;             /* Tono Crema Marfil elegante para la carta */
+  
+  --text-primary: #374151;        /* Texto principal */
+  --text-secondary: #4b5563;      /* Texto descriptivo */
+  --accent-gold: #c5a059;         /* Dorado elegante */
+  --accent-gold-light: #eec984;   /* Brillo dorado */
+  
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --text-cdefault: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  /* Degradado radial con mayor diferencia de tonos para que se note al instante */
+  background: radial-gradient(circle at center, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  color: var(--text-secondary);
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}

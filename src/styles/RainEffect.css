@@ -1,0 +1,41 @@
+/* src/styles/RainEffect.css */
+
+.rain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Permite hacer clic a través de ella sin interferir */
+  overflow: hidden;
+  /* Lo mandamos al fondo absoluto para que no tape los elementos interactivos */
+  z-index: 0; 
+}
+
+.rain-drop {
+  position: absolute;
+  top: -10%;
+  color: var(--accent-gold, #d4af37);
+  opacity: 0.5;
+  user-select: none;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.6;
+  }
+  85% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}

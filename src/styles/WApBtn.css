@@ -1,0 +1,35 @@
+/* src/styles/WhatsAppButton.css */
+
+.whatsapp-btn-container {
+  margin: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Fondo sutil inspirado en la tarjeta, con un borde elegante */
+  background-color: var(--bg-color, #fdfbf7);
+  color: var(--text-primary, #2c3e50);
+  border: 1px solid var(--accent-gold, #d4af37);
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: clamp(0.8rem, 2.2vw, 0.9rem);
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 3px 10px rgba(212, 175, 55, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el mouse o mantener presionado (activo): cambia al color característico de WhatsApp */
+.whatsapp-button:hover,
+.whatsapp-button:active {
+  background-color: #25d366;
+  color: #ffffff;
+  border-color: #25d366;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+}

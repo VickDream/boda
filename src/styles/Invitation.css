@@ -1,0 +1,246 @@
+/* src/components/Invitation.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap');
+
+:root {
+  --card-bg: #fcfbf7; /* Tono Crema Marfil elegante para la carta */
+}
+
+.invitation-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 15px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Contenedor principal del sobre (Responsivo) */
+.envelope {
+  position: relative;
+  width: min(360px, 90vw);
+  height: min(230px, 58vw);
+  background-color: var(--envelope-bg);
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 20px 40px var(--shadow-color);
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.envelope:hover:not(.open) {
+  transform: scale(1.02);
+}
+
+/* Solapa superior del sobre adaptativa */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  border-left: min(180px, 45vw) solid transparent;
+  border-right: min(180px, 45vw) solid transparent;
+  border-top: min(130px, 33vw) solid var(--envelope-flap);
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 6;
+}
+
+/* Bolsillo frontal del sobre */
+.envelope-front {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background-color: var(--envelope-front);
+  border-radius: 0 0 15px 15px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 12px;
+  box-shadow: inset 0 -5px 15px rgba(0,0,0,0.15);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.envelope-seal {
+  font-size: clamp(1.8rem, 5vw, 2.2rem);
+  margin-bottom: 2px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.open-instruction {
+  font-size: clamp(0.7rem, 2.5vw, 0.8rem);
+  color: var(--text-cdefault);
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* --- LA CARTA (ESTILO POPUP FLOTANTE RESPONSIVO) --- */
+.card-container {
+  position: absolute;
+  top: clamp(-180px, -32vw, -150px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  width: min(580px, 94vw);
+  height: min(640px, 90vh);
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: clamp(18px, 4vw, 26px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.card-content h2 {
+  padding: 15px 0 0 0;
+  font-size: clamp(2.3rem, 5.5vw, 2.8rem);
+  font-family: 'Great Vibes', cursive;
+  background: linear-gradient(to bottom, var(--accent-gold-light), var(--accent-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.card-subtitle {
+  font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+  background: linear-gradient(to bottom, var(--accent-gold-light), var(--accent-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.gallery-link {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.gallery-link:hover {
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+
+.gallery-icon-hint {
+  font-size: 1rem;
+  color: var(--accent-gold, #d4af37);
+  vertical-align: middle;
+}
+
+.card-content p {
+  font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+  font-weight: bold;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 6px;
+}
+
+.event-details {
+  width: 100%;
+  font-size: clamp(0.75rem, 2.3vw, 0.85rem);
+  background-color: var(--bg-color);
+  border: 1px dashed var(--envelope-front);
+  padding: 10px;
+  border-radius: 8px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.event-details p {
+  margin-bottom: 4px;
+}
+.event-details p:last-child {
+  margin-bottom: 0;
+}
+
+.event-details p strong {
+  color: var(--text-primary);
+}
+
+.close-instruction {
+  font-size: clamp(0.65rem, 2vw, 0.75rem);
+  color: #9ca3af;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* --- ESTADOS AL ABRIR EL SOBRE (POPUP RESPONSIVO) --- */
+
+.envelope.open .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.envelope.open .card-container {
+  opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+  transform: translateX(-50%) scale(1);
+  z-index: 10;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+}
+
+.envelope.open {
+  cursor: default;
+}
+
+/* Ajustes de responsividad para pantallas pequeñas */
+@media (max-width: 480px) {
+  .card-container {
+    padding: 15px;
+    height: min(560px, 86vh);
+    top: -170px;
+  }
+  .card-content h2 {
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .envelope {
+    width: 300px;
+    height: 190px;
+  }
+  .card-container {
+    width: 290px;
+    height: 520px;
+    top: -185px;
+  }
+  .card-content h2 {
+    font-size: 2rem;
+    padding-top: 5px;
+  }
+}
