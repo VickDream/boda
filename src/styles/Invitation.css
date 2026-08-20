@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Montserrat:wght@300;400;500&display=swap');
 
-
+/* Animación de entrada elegante */
 .invitation-wrapper {
   display: flex;
   justify-content: center;
@@ -13,6 +13,20 @@
   padding: 15px;
   box-sizing: border-box;
   overflow-x: hidden;
+  
+  /* Aplicamos la animación */
+  animation: slideDown 2s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Contenedor principal del sobre (Responsivo) */
@@ -85,12 +99,11 @@
 /* --- LA CARTA (ESTILO POPUP FLOTANTE RESPONSIVO) --- */
 .card-container {
   position: absolute;
-  /* Subimos el popup aumentando el valor negativo para mobile y pantallas generales */
   top: clamp(-180px, -32vw, -150px);
   left: 50%;
   transform: translateX(-50%) scale(0.8);
   width: min(580px, 94vw);
-  height: min(640px, 90vh); /* Aumentamos ligeramente la altura para dar espacio */
+  height: min(640px, 90vh);
   background-color: var(--card-bg);
   border-radius: 12px;
   padding: clamp(18px, 4vw, 26px);
@@ -115,7 +128,7 @@
 }
 
 .card-content h2 {
-  padding: 15px 0 0 0; /* Reducimos el padding superior excesivo para que no empuje todo hacia abajo */
+  padding: 15px 0 0 0;
   font-size: clamp(2.3rem, 5.5vw, 2.8rem);
   font-family: 'Great Vibes', cursive;
   background: linear-gradient(to bottom, var(--accent-gold-light), var(--accent-gold));
@@ -233,7 +246,6 @@
     width: 290px;
     height: 185px;
   }
-  /* Ajustamos los bordes de la solapa para que no se salgan en 358px */
   .envelope-flap {
     border-left: 145px solid transparent;
     border-right: 145px solid transparent;

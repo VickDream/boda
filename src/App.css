@@ -43,3 +43,24 @@ body {
   align-items: center;
   overflow: hidden;
 }
+
+.rain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Vital para que no bloquee los clics */
+  z-index: 1; /* Un número bajo, pero positivo */
+}
+
+/* Tu tarjeta o contenedor principal de la invitación */
+.invitation-wrapper {
+  position: relative;
+  z-index: 2; /* Un número mayor para que esté SIEMPRE encima de la lluvia */
+}
+
+/* Tus modales (fotos, deseos, mapa) */
+.modal-overlay {
+  z-index: 9999; /* Muy alto para que tapen absolutamente todo */
+}
