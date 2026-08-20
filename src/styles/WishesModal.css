@@ -1,0 +1,114 @@
+/* src/styles/WishesModal.css */
+.wishes-modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+/* Título más grande, dorado y despegado */
+.wishes-modal-content h2 {
+  font-size: 1.9rem;
+  color: var(--accent-gold, #d4af37);
+  margin-bottom: 20px;
+  font-family: inherit;
+}
+
+.wishes-subtitle {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.wishes-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.wishes-form input,
+.wishes-form textarea {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+}
+
+.wishes-form button {
+  background: var(--accent-gold, #d4af37);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.wishes-form button:hover {
+  background: #b8972d;
+}
+
+.wishes-form textarea {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  width: 100%;       /* Asegura que ocupe todo el ancho */
+  resize: none;      /* Impide que el usuario lo deforme */
+  box-sizing: border-box; /* Importante: evita que el padding rompa el ancho */
+  min-height: 80px;  /* Altura mínima cómoda */
+}
+
+/* Contenedor del textarea para que el contador no flote raro */
+.textarea-container {
+  position: relative;
+  width: 100%;
+}
+
+.wishes-wall {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+  text-align: left;
+  padding-right: 5px;
+}
+
+.wish-card {
+  background: #fdfbf7;
+  border-left: 3px solid var(--accent-gold, #d4af37);
+  padding: 10px 14px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.wish-message {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.wish-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.wish-author {
+  font-weight: 600;
+  color: var(--accent-gold, #d4af37);
+}

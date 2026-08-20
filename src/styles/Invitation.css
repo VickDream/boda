@@ -1,10 +1,8 @@
 /* src/components/Invitation.css */
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Montserrat:wght@300;400;500&display=swap');
 
-:root {
-  --card-bg: #fcfbf7; /* Tono Crema Marfil elegante para la carta */
-}
 
 .invitation-wrapper {
   display: flex;
@@ -87,11 +85,12 @@
 /* --- LA CARTA (ESTILO POPUP FLOTANTE RESPONSIVO) --- */
 .card-container {
   position: absolute;
+  /* Subimos el popup aumentando el valor negativo para mobile y pantallas generales */
   top: clamp(-180px, -32vw, -150px);
   left: 50%;
   transform: translateX(-50%) scale(0.8);
   width: min(580px, 94vw);
-  height: min(640px, 90vh);
+  height: min(640px, 90vh); /* Aumentamos ligeramente la altura para dar espacio */
   background-color: var(--card-bg);
   border-radius: 12px;
   padding: clamp(18px, 4vw, 26px);
@@ -116,7 +115,7 @@
 }
 
 .card-content h2 {
-  padding: 15px 0 0 0;
+  padding: 15px 0 0 0; /* Reducimos el padding superior excesivo para que no empuje todo hacia abajo */
   font-size: clamp(2.3rem, 5.5vw, 2.8rem);
   font-family: 'Great Vibes', cursive;
   background: linear-gradient(to bottom, var(--accent-gold-light), var(--accent-gold));
@@ -135,7 +134,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', 'Cormorant Garamond', serif;
   font-weight: bold;
   margin-bottom: 6px;
 }
@@ -231,16 +230,22 @@
 
 @media (max-width: 360px) {
   .envelope {
-    width: 300px;
-    height: 190px;
+    width: 290px;
+    height: 185px;
+  }
+  /* Ajustamos los bordes de la solapa para que no se salgan en 358px */
+  .envelope-flap {
+    border-left: 145px solid transparent;
+    border-right: 145px solid transparent;
+    border-top-width: 110px;
   }
   .card-container {
-    width: 290px;
-    height: 520px;
+    width: 280px;
+    height: 500px;
     top: -185px;
   }
   .card-content h2 {
-    font-size: 2rem;
+    font-size: 1.9rem;
     padding-top: 5px;
   }
 }

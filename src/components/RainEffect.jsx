@@ -1,49 +1,42 @@
 // src/components/RainEffect.jsx
-import React from 'react';
+import React, { useMemo } from 'react';
 import { FaHeart, FaRing, FaGlassCheers, FaStar } from 'react-icons/fa';
 import '../styles/RainEffect.css';
 
 const RainEffect = () => {
-  // Cantidad de elementos flotantes en la lluvia
-  const elements = Array.from({ length: 22 });
+  // Usamos useMemo para generar los valores aleatorios una sola vez al montar el componente
+  const raindrops = useMemo(() => {
+    const elements = Array.from({ length: 22 });
+    const weddingIcons = [<FaHeart />, <FaRing />, <FaGlassCheers />, <FaStar />];
 
-  // Lista de íconos temáticos para repartir en la lluvia
-  const weddingIcons = [
-    <FaHeart key="heart" />, 
-    <FaRing key="ring" />, 
-    <FaGlassCheers key="cheers" />, 
-    <FaStar key="star" />
-  ];
+    return elements.map((_, index) => ({
+      id: index,
+      left: Math.random() * 100,
+      duration: 6 + Math.random() * 8,
+      delay: Math.random() * 5,
+      size: 0.8 + Math.random() * 1.0,
+      icon: weddingIcons[index % weddingIcons.length]
+    }));
+  }, []);
 
   return (
     <div className="rain-container">
-      {elements.map((_, index) => {
-        // Generamos valores aleatorios para estilos únicos por elemento
-        const randomLeft = Math.random() * 100; // Porcentaje de ancho
-        const randomDuration = 6 + Math.random() * 8; // Entre 6 y 14 segundos de caída (más pausado y elegante)
-        const randomDelay = Math.random() * 5; // Retraso aleatorio al iniciar
-        const randomSize = 0.8 + Math.random() * 1.0; // Escala de tamaño
-
-        // Seleccionamos un ícono cíclicamente o de forma aleatoria de nuestra lista
-        const SelectedIcon = weddingIcons[index % weddingIcons.length];
-
-        return (
-          <div
-            key={index}
-            className="rain-drop"
-            style={{
-              left: `${randomLeft}%`,
-              animationDuration: `${randomDuration}s`,
-              animationDelay: `${randomDelay}s`,
-              fontSize: `${randomSize}rem`,
-            }}
-          >
-            {SelectedIcon}
-          </div>
-        );
-      })}
+      {raindrops.map((drop) => (
+        <div
+          key={drop.id}
+          className="rain-drop"
+          style={{
+            left: `${drop.left}%`,
+            animationDuration: `${drop.duration}s`,
+            animationDelay: `${drop.delay}s`,
+            fontSize: `${drop.size}rem`,
+          }}
+        >
+          {drop.icon}
+        </div>
+      ))}
     </div>
   );
 };
 
-export default RainEffect;
+export default React.memo(RainEffect);

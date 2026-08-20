@@ -6,36 +6,38 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  pointer-events: none; /* Permite hacer clic a través de ella sin interferir */
+  pointer-events: none; /* Permite hacer clic a través de la lluvia */
   overflow: hidden;
-  /* Lo mandamos al fondo absoluto para que no tape los elementos interactivos */
-  z-index: 0; 
+  z-index: 1; /* Detrás de las tarjetas principales, pero visible sobre el fondo */
 }
 
 .rain-drop {
   position: absolute;
   top: -10%;
   color: var(--accent-gold, #d4af37);
-  opacity: 0.5;
-  user-select: none;
-  animation-name: fall;
+  opacity: 0.6;
+  animation-name: fallAnimation;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  
+  /* CLAVE PARA OPTIMIZAR: Forzar aceleración por GPU */
+  will-change: transform;
+  transform: translateZ(0);
 }
 
-@keyframes fall {
+@keyframes fallAnimation {
   0% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0) rotate(0deg) translateZ(0);
     opacity: 0;
   }
-  15% {
+  10% {
     opacity: 0.6;
   }
-  85% {
+  90% {
     opacity: 0.6;
   }
   100% {
-    transform: translateY(110vh) rotate(360deg);
+    transform: translateY(110vh) rotate(360deg) translateZ(0);
     opacity: 0;
   }
 }
